@@ -10,6 +10,8 @@ This repository acts as a starting point for the actual, more sophisticated envi
 
 ## Quick reference guide ##
 
+TODO: Reference guide will be updated!
+
 ### Image Build and Setup
 Run `./setup.sh` to build the image. This script will generate <name>-create.sh and <name>-remove-image.sh scripts. 
 
