@@ -38,4 +38,5 @@ Run `dden-uninstall.sh` to uninstall dden environment and remove dden image.
 
 ## Image Build ##
 Source code is available in `https://bitbucket.org/psu82/dden/src/master/`.
+
 Run `./build.sh` to build the image. Use -r option to set a custom tag (release version) - default 'latest'.
