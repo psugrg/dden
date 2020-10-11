@@ -13,11 +13,6 @@
 *.map
 *.asm
 
-# Generated files #
-###################
-*-create.sh
-*-remove.sh
-
 # Other files #
 ###############
 *.swp
