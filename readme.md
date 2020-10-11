@@ -10,19 +10,14 @@ This repository acts as a starting point for the actual, more sophisticated envi
 
 ## Quick reference guide ##
 
-TODO: Reference guide will be updated!
-
-### Image Build
-Run `./build.sh` to build the image. Use -r option to set a custom tag (release version) - default 'latest'.
-
 ### Installation
 Run `docker run --rm -v "$HOME/.local/bin:/home/user/.local/bin" -u "$(id -u):$(id -g)" psugrg/dden dden-install.sh` to install DDEN Environment in the $HOME/.local/bin folder.
 
 ### Create DDEN Environment
-Run `dden-create.sh <container_name>` in the project location, or use the optional -p argument to pass the path to the project location. This script will create container (DevEnv instance) dedicated to this (current or provided) location. This script will generate <container_name>-start.sh <container_name>-exec.sh <container_name>-stop.sh <container_name>-remove.sh scripts
+Run `dden-create.sh <container_name>` in the project location, or use the optional -p argument to pass the path to the project location. This script will create container (DevEnv instance) dedicated to this (current or provided) location. This script will generate <container_name>-start.sh <container_name>-exec.sh <container_name>-stop.sh <container_name>-remove.sh scripts.
 
 ### Start container 
-Run `./<container_name>-start.sh` to start container before starting working on your project
+Run `./<container_name>-start.sh` to start container before starting working on your project.
 
 ### Call any command
 Use `./<container_name>.sh` script to call any command from the container. 
@@ -33,10 +28,14 @@ Use `./<container_name>.sh` script to call any command from the container.
 This command will be executed inside the container. 
 
 ### Stop container
-Run `./<container_name>-stop.sh` to stop running container
+Run `./<container_name>-stop.sh` to stop running container.
 
 ### Remove container
-Run `./<container_name>-remove.sh` to remove container
+Run `./<container_name>-remove.sh` to remove container.
 
 ### Uninstall
-Run `dden-uninstall.sh` to uninstall dden environment and remove dden image
+Run `dden-uninstall.sh` to uninstall dden environment and remove dden image.
+
+## Image Build ##
+Source code is available in `https://bitbucket.org/psu82/dden/src/master/`.
+Run `./build.sh` to build the image. Use -r option to set a custom tag (release version) - default 'latest'.
