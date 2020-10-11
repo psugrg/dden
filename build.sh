@@ -2,7 +2,7 @@
 # Script version
 version="0.1.0"
 # Image Name
-name="dden"
+name="psugrg/dden"
 #
 # This is an optional arguments-only example of Argbash potential
 #
@@ -99,8 +99,8 @@ docker build --tag=${name}:${_arg_release} .
 
 if [ $_arg_release != "latest" ]
 then
-	docker tag ${name}:${_arg_release} psugrg/${name}:${_arg_release}
-	docker push psugrg/${name}:${_arg_release}
+	docker tag ${name}:${_arg_release} ${name}:${_arg_release}
+	docker push ${name}:${_arg_release}
 fi
 
 # ] <-- needed because of Argbash

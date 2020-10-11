@@ -18,3 +18,18 @@ RUN apt-get update && apt-get install -y \
         unzip \
         cppcheck \
         bear 
+
+# Copy DDEN Scripts
+WORKDIR /usr
+
+# Installation script
+COPY dden-install.sh /usr/bin
+RUN chmod +x /usr/bin/dden-install.sh
+
+# DDEN Environment create script
+COPY dden-create.sh /usr/src
+RUN chmod +x /usr/src/dden-create.sh
+
+# DDEN Environment unistall script
+COPY dden-uninstall.sh /usr/src
+RUN chmod +x /usr/src/dden-uninstall.sh
