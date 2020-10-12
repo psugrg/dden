@@ -15,7 +15,6 @@ sed -e "s,{{ image_name }},${IMAGE_NAME}," /usr/src/create.tmpl > /home/user/.lo
 chmod +x /home/user/.local/bin/${ENV_NAME}-create.sh
 
 sed -e "s,{{ image_name }},${IMAGE_NAME}," -e "s,{{ env_name }},${ENV_NAME},g" /usr/src/uninstall.tmpl > /home/user/.local/bin/${ENV_NAME}-uninstall.sh
-# sed -e "s,{{ env_name }},${ENV_NAME}," /home/user/.local/bin/${ENV_NAME}-uninstall.sh > /home/user/.local/bin/${ENV_NAME}-uninstall.sh
 chmod +x /home/user/.local/bin/${ENV_NAME}-uninstall.sh
 
 echo "Done"
