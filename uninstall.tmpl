@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Uninstalling {{ image_name }} environment"
+docker rmi {{ image_name }}
+
+if [ $? -eq 0 ]
+then
+rm $HOME/.local/bin/{{ env_name }}-create.sh $HOME/.local/bin/{{ env_name }}-uninstall.sh
+  echo "{{ image_name }} environment unistalled"
+  exit 0
+else
+  echo "Could not uninstall {{ image_name }}" >&2
+  exit 1
+fi

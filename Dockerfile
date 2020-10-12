@@ -6,30 +6,30 @@ ENV TZ=Europe/Warsaw
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install all needed packages
-RUN apt-get update && apt-get install -y \
-        tar \ 
-        wget \
-        vim \
-        git \
-        subversion \
-        make \
-        doxygen \
-        graphviz \
-        unzip \
-        cppcheck \
-        bear 
+# RUN apt-get update && apt-get install -y \
+#         tar \ 
+#         wget \
+#         vim \
+#         git \
+#         subversion \
+#         make \
+#         doxygen \
+#         graphviz \
+#         unzip \
+#         cppcheck \
+#         bear 
 
 # Copy DDEN Scripts
 WORKDIR /usr
 
 # Installation script
-COPY dden-install.sh /usr/bin
-RUN chmod +x /usr/bin/dden-install.sh
+COPY install.sh /usr/bin
+RUN chmod +x /usr/bin/install.sh
 
 # DDEN Environment create script
-COPY dden-create.sh /usr/src
-RUN chmod +x /usr/src/dden-create.sh
+COPY create.tmpl /usr/src
+RUN chmod +x /usr/src/create.tmpl
 
 # DDEN Environment unistall script
-COPY dden-uninstall.sh /usr/src
-RUN chmod +x /usr/src/dden-uninstall.sh
+COPY uninstall.tmpl /usr/src
+RUN chmod +x /usr/src/uninstall.tmpl

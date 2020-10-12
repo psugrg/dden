@@ -125,7 +125,7 @@ assign_positional_args 1 "${_positionals[@]}"
 docker create --name $_arg_name -v $_arg_path:$_arg_path -w $_arg_path \
 -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw -e XAUTHORITY=/tmp/.docker.xauth \
 --privileged -v /dev/bus/usb:/dev/bus/usb \
--i -t psugrg/dden
+-i -t {{ image_name }}
 
 # Create script to Start container:
 echo "#!/bin/bash" > ${_arg_path}/${_arg_name}-start.sh
