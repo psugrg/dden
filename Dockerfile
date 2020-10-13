@@ -5,20 +5,6 @@ FROM ubuntu:rolling
 ENV TZ=Europe/Warsaw
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Install all needed packages
-RUN apt-get update && apt-get install -y \
-        tar \ 
-        wget \
-        vim \
-        git \
-        subversion \
-        make \
-        doxygen \
-        graphviz \
-        unzip \
-        cppcheck \
-        bear 
-
 # Copy DDEN Scripts
 WORKDIR /usr
 

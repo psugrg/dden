@@ -1,26 +1,40 @@
-# README #
+# README
 
-## The Docker based Development Environment - Base repository ##
+## DDEN - The Docker based Development Environment 
+This image is intended to be a base for creating development environments. 
 
-The simple approach to the docker based development environment. 
+The main feature are the installation and management scripts embedded into the image.
+A single-line command executed in the container will install the environment on the development machine (see reference guide for details). 
+Child image that derives from *DDEN* can be installed and managed by these scripts making the installation process much easier and *user friendly*.
 
-The main intention of this project is to create a simple to use, self contained development environment.
+This image is based on the *ubuntu:rolling* but doesn't install any packages for you. Every development environment is different and requires different packages. 
 
-This repository acts as a starting point for the actual, more sophisticated environments. 
+## Reference guide
 
-## Quick reference guide ##
+### Derived image preparation
+Derived image should be created from the *psugrg/dden* base image: `FROM psugrg/dden:latest`.
+
+Dockerfile should contain `ENV IMAGE_NAME="<image_name>"` where `<image_name>` is the name of the Development Environment you're about to create. This will tell the base image how to configure installation scripts.
+
+The content of the rest of the Dockerfile is in your hands.
 
 ### Installation
-Run `docker run --rm -v "$HOME/.local/bin:/home/user/.local/bin" -u "$(id -u):$(id -g)" psugrg/dden install.sh` to install DDEN Environment in the $HOME/.local/bin folder.
+Run `docker run --rm -v "$HOME/.local/bin:/home/user/.local/bin" -u "$(id -u):$(id -g)" psugrg/dden install.sh` to install *DDEN* Environment in the *$HOME/.local/bin* folder.
 
-### Create DDEN Environment
-Run `dden-create.sh <container_name>` in the project location, or use the optional -p argument to pass the path to the project location. This script will create container (DevEnv instance) dedicated to this (current or provided) location. This script will generate <container_name>-start.sh <container_name>-exec.sh <container_name>-stop.sh <container_name>-remove.sh scripts.
+Change `/home/user/.local/bin` if you want to change the default installation location.
+
+For derived image replace the `psugrg/dden` with its name. Note that all `/` that are part of the image name will be replaced by `-` in the name of the installed scripts.
+
+### Create Development Environment for a project location
+Run `psugrg-dden-create.sh <container_name>` in the project location, or use the optional *-p* argument to pass the path to the project location. This script will create container (Instance of Development Environment image) dedicated to this (current or provided) location. This script will generate <container_name>-start.sh <container_name>.sh <container_name>-stop.sh <container_name>-remove.sh scripts.
+
+For derived image replace the `psugrg-dden-create.sh` with the name of the script installed during the installation process. 
 
 ### Start container 
 Run `./<container_name>-start.sh` to start container before starting working on your project.
 
 ### Call any command
-Use `./<container_name>.sh` script to call any command from the container. 
+Run `./<container_name>.sh` script to call any command from the container. 
 
 #### Example usage
 
@@ -34,9 +48,11 @@ Run `./<container_name>-stop.sh` to stop running container.
 Run `./<container_name>-remove.sh` to remove container.
 
 ### Uninstall
-Run `dden-uninstall.sh` to uninstall dden environment and remove dden image.
+Run `psugrg-dden-uninstall.sh` to uninstall dden environment and remove dden image.
 
-## Image Build ##
+For derived image replace the `psugrg-dden-create.sh` with the name of the script installed during the installation process. 
+
+## Image Build
 Source code is available in `https://bitbucket.org/psu82/dden/src/master/`.
 
 Run `./build.sh` to build the image. Use -r option to set a custom tag (release version) - default 'latest'.
