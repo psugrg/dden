@@ -1,6 +1,4 @@
-# README
-
-## DDEN - The Docker based Development Environment 
+# The Docker based Development Environment (DDEN)
 This image is intended to be a base for creating development environments. 
 
 The main feature are the installation and management scripts embedded into the image.
@@ -38,7 +36,9 @@ Run `./<container_name>.sh` script to call any command from the container.
 
 #### Example usage
 
-```./<container_name>.sh echo "Hello World!"```
+```
+./<container_name>.sh echo "Hello World!"
+```
 This command will be executed inside the container. 
 
 ### Stop container
