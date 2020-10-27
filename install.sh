@@ -11,7 +11,8 @@ fi
 # Note that the standard / delimeter has been replaced by , (comma) to avoid problems with slash in the image name
 ENV_NAME=$(echo "${IMAGE_NAME}" | sed -e "s,/,-,")
 
-sed -e "s,{{ image_name }},${IMAGE_NAME}," /usr/src/create.tmpl > /home/user/.local/bin/${ENV_NAME}-create.sh
+sed -e "s,{{ image_name }},${IMAGE_NAME}," -e "s,{{ docker_create_Extra }},${DOCKER_CREATE_EXTRA}," -e "s,{{ docker_Start_Extra }},${DOCKER_START_EXTRA}," \
+     /usr/src/create.tmpl > /home/user/.local/bin/${ENV_NAME}-create.sh
 chmod +x /home/user/.local/bin/${ENV_NAME}-create.sh
 
 sed -e "s,{{ image_name }},${IMAGE_NAME}," -e "s,{{ env_name }},${ENV_NAME},g" /usr/src/uninstall.tmpl > /home/user/.local/bin/${ENV_NAME}-uninstall.sh
