@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Installation start"
 
-if [ -n ${IMAGE_NAME} ]
+if [ "$IMAGE_NAME" == "" ]
 then 
 echo "WARNING: It looks like you're installing the base DDEN environment which is not intended to be run standalone!"
 IMAGE_NAME="psugrg/dden"
