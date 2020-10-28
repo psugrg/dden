@@ -16,7 +16,7 @@ Dockerfile should contain `ENV IMAGE_NAME="<image_name>"` where `<image_name>` i
 
 It's possible to add extra flags to the `docker create` command run by the `<image_name>-create.sh` script by adding `ENV DOCKER_CREATE_EXTRA=<extra flags>` to the Dockerfile. 
 
-It's also possible to add extra commands to the `<container_name>-start.sh` script by adding `ENV DOCKER_START_EXTRA=<extra commands>` to the Dockerfile.
+It's also possible to add extra commands to the `<container_name>-start.sh` script by adding `ENV DOCKER_START_EXTRA=<extra commands>` to the Dockerfile. These commands will be executed on host machine just before the `docker start` command. 
 
 The content of the rest of the Dockerfile is in your hands.
 
